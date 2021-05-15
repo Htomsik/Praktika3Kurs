@@ -52,18 +52,17 @@
         </Style>
 
 
-
+       
 
         <!--  Стиль кнопок на панели  -->
-        <Style x:Key="_SlidePanelButton" TargetType="Button">
-            <Setter Property="Command" Value="{Binding UpdateViewCommand}" />
+        <Style x:Key="_SlidePanelButton" TargetType="ListViewItem">
             <Setter Property="Height" Value="50" />
             <Setter Property="Margin" Value="5,0,0,0" />
             <Setter Property="FontFamily" Value="Century Gothic" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="Button">
+                    <ControlTemplate TargetType="ListViewItem">
 
                         <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
 
@@ -95,11 +94,14 @@
                                 <ContentPresenter Content="{TemplateBinding Content}" />
                             </TextBlock>
 
+                       
+
                         </StackPanel>
 
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            
 
 
 
@@ -110,11 +112,11 @@
         <Style
             x:Key="_SlidePanelButtonImage"
             BasedOn="{StaticResource _SlidePanelButton}"
-            TargetType="Button">
+            TargetType="ListViewItem">
 
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="Button">
+                    <ControlTemplate TargetType="ListViewItem">
 
                         <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
 
@@ -264,13 +266,13 @@
             </Border>
 
             <Frame
-                NavigationUIVisibility="Hidden"
                 x:Name="_ControlContent"
                 Grid.Row="1"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Panel.ZIndex="4"
-                Content="{Binding SelectedViewModel}" />
+                Content="{Binding SelectedViewModel}"
+                NavigationUIVisibility="Hidden" />
 
             <!--  Меню  -->
             <Grid
@@ -391,7 +393,7 @@
 
                 </Grid>
 
-                <StackPanel
+                <ListView
                     Grid.Row="1"
                     Grid.RowSpan="2"
                     Grid.ColumnSpan="2"
@@ -404,65 +406,82 @@
 
                     <!--  main  -->
 
-                    <Button
-                        CommandParameter="Home"
+                    <ListViewItem
                         Content="Главная страница"
                         Style="{StaticResource _SlidePanelButtonImage}"
                         Tag="Assets/home.png"
-                        ToolTip="Главная страница" />
+                        ToolTip="Главная страница">
+
+                        <ListViewItem.InputBindings>
+                            <MouseBinding
+                                Command="{Binding UpdateViewCommand}"
+                                CommandParameter="{Binding _PageNameArray[0]}"
+                                MouseAction="LeftClick" />
+                        </ListViewItem.InputBindings>
+                     
+
+                    </ListViewItem>
 
                     <!--  1  -->
-                    <Button
-                        CommandParameter="_Pr1"
+                    <ListViewItem
                         Content="Простейшие элементы управления"
                         Style="{StaticResource _SlidePanelButton}"
                         Tag="1"
-                        ToolTip="15 Простейшие элементы управления" />
+                        ToolTip="15 Простейшие элементы управления" >
+
+                        <ListViewItem.InputBindings>
+                            <MouseBinding
+                                Command="{Binding UpdateViewCommand}"
+                                CommandParameter="{Binding _PageNameArray[1]}"
+                                MouseAction="LeftClick" />
+                        </ListViewItem.InputBindings>
+
+
+                    </ListViewItem>
                     <!--  2  -->
-                    <Button
-                        CommandParameter="_Pr2"
+                    <ListViewItem
                         Content="Динамическое управление элементами"
                         Style="{StaticResource _SlidePanelButton}"
                         Tag="2"
                         ToolTip="16 Динамическое управление элементами" />
                     <!--  3  -->
-                    <Button
+                    <ListViewItem
                         Content="Настройки приложения"
                         Style="{StaticResource _SlidePanelButton}"
                         Tag="3"
                         ToolTip="17 Настройки приложения" />
                     <!--  4  -->
-                    <Button
+                    <ListViewItem
                         Content="Программирование линейных алгоритмов"
                         Style="{StaticResource _SlidePanelButton}"
                         Tag="4"
                         ToolTip="18.1 Программирование линейных алгоритмов" />
                     <!--  5  -->
-                    <Button
+                    <ListViewItem
                         Content="Программирование разветвляющихся алгоритмов"
                         Style="{StaticResource _SlidePanelButton}"
                         Tag="5"
                         ToolTip="18.2 Программирование разветвляющихся алгоритмов" />
                     <!--  6  -->
-                    <Button
+                    <ListViewItem
                         Content="Программирование циклических алгоритмов"
                         Style="{StaticResource _SlidePanelButton}"
                         Tag="6"
                         ToolTip="18.3 Программирование циклических алгоритмов" />
                     <!--  7  -->
-                    <Button
+                    <ListViewItem
                         Content="Работа со списками, панелями, вкладками"
                         Style="{StaticResource _SlidePanelButton}"
                         Tag="7"
                         ToolTip="19 Работа со списками, панелями, вкладками" />
                     <!--  8  -->
-                    <Button
+                    <ListViewItem
                         Content="Работа с меню и диалоговыми окнами"
                         Style="{StaticResource _SlidePanelButton}"
                         Tag="8"
                         ToolTip="20 Работа с меню и диалоговыми окнами" />
                     <!--  9  -->
-                    <Button
+                    <ListViewItem
                         Content="Дополнительное задание"
                         Style="{StaticResource _SlidePanelButton}"
                         Tag="9"
@@ -470,7 +489,8 @@
 
 
 
-                </StackPanel>
+                </ListView>
+
 
             </Grid>
 

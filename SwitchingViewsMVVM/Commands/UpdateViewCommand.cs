@@ -25,15 +25,15 @@ namespace SwitchingViewsMVVM.Commands
 
             switch (parameter.ToString())
             {
-                case ("Home"):
+                case ("Assets/home.png"):
                     viewModel.SelectedViewModel = new HomeViewModel();
                     break;
 
-                case ("_Pr1"):
+                case ("1"):
                     viewModel.SelectedViewModel = new _Pr1ViewModel();
                     break;
 
-                case ("_Pr2"):
+                case ("2"):
                     viewModel.SelectedViewModel = new _Pr2ViewModel();
                     break;
 

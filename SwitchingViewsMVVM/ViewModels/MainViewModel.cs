@@ -11,6 +11,14 @@ namespace SwitchingViewsMVVM.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        public object[] _PageNameArray
+        {
+            get
+            {
+                return new object[] { "Home", "1", "2", "3" };
+            }
+        }
+
         #region title
         private string _Title = "Несутулов/Краснов 418";
         public string Title
