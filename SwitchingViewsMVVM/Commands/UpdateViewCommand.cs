@@ -25,7 +25,7 @@ namespace SwitchingViewsMVVM.Commands
 
             switch (parameter.ToString())
             {
-                case ("Assets/home.png"):
+                case ("0"):
                     viewModel.SelectedViewModel = new HomeViewModel();
                     break;
 

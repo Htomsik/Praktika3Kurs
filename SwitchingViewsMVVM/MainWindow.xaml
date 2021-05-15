@@ -51,105 +51,6 @@
             </Setter>
         </Style>
 
-
-       
-
-        <!--  Стиль кнопок на панели  -->
-        <Style x:Key="_SlidePanelButton" TargetType="ListViewItem">
-            <Setter Property="Height" Value="50" />
-            <Setter Property="Margin" Value="5,0,0,0" />
-            <Setter Property="FontFamily" Value="Century Gothic" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ListViewItem">
-
-                        <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
-
-
-                            <Border
-                                Width="40"
-                                Height="40"
-                                Background="#FF666666"
-                                CornerRadius="17">
-                                <Grid>
-                                    <TextBlock
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        FontSize="28"
-                                        FontWeight="Bold"
-                                        Text="{TemplateBinding Tag}"
-                                        TextAlignment="Center" />
-                                </Grid>
-
-
-                            </Border>
-
-
-                            <TextBlock
-                                Margin="15,0"
-                                HorizontalAlignment="left"
-                                VerticalAlignment="Center"
-                                FontWeight="Bold">
-                                <ContentPresenter Content="{TemplateBinding Content}" />
-                            </TextBlock>
-
-                       
-
-                        </StackPanel>
-
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            
-
-
-
-        </Style>
-
-
-        <!--  Стиль кнопок на панели с image  -->
-        <Style
-            x:Key="_SlidePanelButtonImage"
-            BasedOn="{StaticResource _SlidePanelButton}"
-            TargetType="ListViewItem">
-
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ListViewItem">
-
-                        <StackPanel Margin="5,0,0,0" Orientation="Horizontal">
-
-                            <Border
-                                Width="40"
-                                Height="40"
-                                Background="#FF666666"
-                                CornerRadius="17">
-                                <Image
-                                    Width="40"
-                                    Height="40"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Tag}" />
-
-                            </Border>
-
-
-                            <TextBlock
-                                Margin="15,0,0,0"
-                                VerticalAlignment="Center"
-                                FontWeight="Bold"
-                                TextAlignment="Left">
-                                <ContentPresenter Content="{TemplateBinding Content}" />
-                            </TextBlock>
-
-                        </StackPanel>
-
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
     </Window.Resources>
 
     <!--  Вся страница  -->
@@ -401,93 +302,61 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Background="Transparent"
+                    BorderThickness="0"
+                    FontFamily="Century Gothic"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    ItemsSource="{Binding _PageLists}"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                    <!--  main  -->
+                    <ListView.ItemTemplate>
 
-                    <ListViewItem
-                        Content="Главная страница"
-                        Style="{StaticResource _SlidePanelButtonImage}"
-                        Tag="Assets/home.png"
-                        ToolTip="Главная страница">
+                        <DataTemplate>
 
-                        <ListViewItem.InputBindings>
-                            <MouseBinding
-                                Command="{Binding UpdateViewCommand}"
-                                CommandParameter="{Binding _PageNameArray[0]}"
-                                MouseAction="LeftClick" />
-                        </ListViewItem.InputBindings>
-                     
+                            <StackPanel
+                                Height="50"
+                                Margin="5,0,0,0"
+                                Orientation="Horizontal"
+                                ToolTip="{Binding Contents}">
 
-                    </ListViewItem>
-
-                    <!--  1  -->
-                    <ListViewItem
-                        Content="Простейшие элементы управления"
-                        Style="{StaticResource _SlidePanelButton}"
-                        Tag="1"
-                        ToolTip="15 Простейшие элементы управления" >
-
-                        <ListViewItem.InputBindings>
-                            <MouseBinding
-                                Command="{Binding UpdateViewCommand}"
-                                CommandParameter="{Binding _PageNameArray[1]}"
-                                MouseAction="LeftClick" />
-                        </ListViewItem.InputBindings>
+                                <Border
+                                    Width="40"
+                                    Height="40"
+                                    Background="#FF666666"
+                                    CornerRadius="17">
+                                    <Grid>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="28"
+                                            FontWeight="Bold"
+                                            Text="{Binding Tags}"
+                                            TextAlignment="Center" />
+                                    </Grid>
 
 
-                    </ListViewItem>
-                    <!--  2  -->
-                    <ListViewItem
-                        Content="Динамическое управление элементами"
-                        Style="{StaticResource _SlidePanelButton}"
-                        Tag="2"
-                        ToolTip="16 Динамическое управление элементами" />
-                    <!--  3  -->
-                    <ListViewItem
-                        Content="Настройки приложения"
-                        Style="{StaticResource _SlidePanelButton}"
-                        Tag="3"
-                        ToolTip="17 Настройки приложения" />
-                    <!--  4  -->
-                    <ListViewItem
-                        Content="Программирование линейных алгоритмов"
-                        Style="{StaticResource _SlidePanelButton}"
-                        Tag="4"
-                        ToolTip="18.1 Программирование линейных алгоритмов" />
-                    <!--  5  -->
-                    <ListViewItem
-                        Content="Программирование разветвляющихся алгоритмов"
-                        Style="{StaticResource _SlidePanelButton}"
-                        Tag="5"
-                        ToolTip="18.2 Программирование разветвляющихся алгоритмов" />
-                    <!--  6  -->
-                    <ListViewItem
-                        Content="Программирование циклических алгоритмов"
-                        Style="{StaticResource _SlidePanelButton}"
-                        Tag="6"
-                        ToolTip="18.3 Программирование циклических алгоритмов" />
-                    <!--  7  -->
-                    <ListViewItem
-                        Content="Работа со списками, панелями, вкладками"
-                        Style="{StaticResource _SlidePanelButton}"
-                        Tag="7"
-                        ToolTip="19 Работа со списками, панелями, вкладками" />
-                    <!--  8  -->
-                    <ListViewItem
-                        Content="Работа с меню и диалоговыми окнами"
-                        Style="{StaticResource _SlidePanelButton}"
-                        Tag="8"
-                        ToolTip="20 Работа с меню и диалоговыми окнами" />
-                    <!--  9  -->
-                    <ListViewItem
-                        Content="Дополнительное задание"
-                        Style="{StaticResource _SlidePanelButton}"
-                        Tag="9"
-                        ToolTip="Дополнительное задание" />
+                                </Border>
 
 
+                                <TextBlock
+                                    Margin="15,0"
+                                    HorizontalAlignment="left"
+                                    VerticalAlignment="Center">
+                                    <ContentPresenter Content="{Binding Contents}" />
+                                </TextBlock>
+
+
+
+                            </StackPanel>
+
+                            
+
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                  
 
                 </ListView>
 

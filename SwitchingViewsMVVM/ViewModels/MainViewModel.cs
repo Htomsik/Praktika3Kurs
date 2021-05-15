@@ -6,18 +6,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using SwitchingViewsMVVM.Models;
 
 namespace SwitchingViewsMVVM.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        public object[] _PageNameArray
-        {
-            get
-            {
-                return new object[] { "Home", "1", "2", "3" };
-            }
-        }
+
+        public List<PageList> _PageLists { get; set; }
+        //public object[] _PageNameArray
+        //{
+        //    get
+        //    {
+        //        return new object[] { "Home", "1", "2", "3" };
+        //    }
+        //}
 
         #region title
         private string _Title = "Несутулов/Краснов 418";
@@ -58,6 +61,62 @@ namespace SwitchingViewsMVVM.ViewModels
         public MainViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);
+
+
+            #region Список страниц
+            _PageLists = new List<PageList>
+            {
+                new PageList
+                {
+                    Contents="Главная страница",
+                     Tags = "0"
+                },
+                new PageList
+                {
+                    Contents="Простейшие элементы управления",
+                     Tags = "1"
+                },
+                 new PageList
+                {
+                    Contents="Динамическое управление элементами",
+                     Tags = "2"
+                },
+                  new PageList
+                {
+                    Contents="Настройки приложения",
+                     Tags = "3"
+                },
+                   new PageList
+                {
+                    Contents="Программирование линейных алгоритмов",
+                     Tags = "4"
+                },
+                    new PageList
+                {
+                    Contents="Программирование разветвляющихся алгоритмов",
+                     Tags = "5"
+                }, new PageList
+                {
+                    Contents="Программирование циклических алгоритмов",
+                     Tags = "6"
+                },
+                 new PageList
+                {
+                    Contents="Работа со списками, панелями, вкладками",
+                     Tags = "7"
+                },
+                 new PageList
+                 {
+                     Contents="Работа с меню и диалоговыми окнами",
+                     Tags="8"
+                 },
+                 new PageList
+                 {
+                     Contents="Дополнительное задание",
+                     Tags="9"
+                 }
+            };
+            #endregion
         }
     }
 }
