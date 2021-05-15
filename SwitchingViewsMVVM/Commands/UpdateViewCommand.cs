@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace SwitchingViewsMVVM.Commands
 {
-    internal class UpdateViewCommand : BaseCommand
+    public class UpdateViewCommand : BaseCommand
     {
         private MainViewModel viewModel;
         public UpdateViewCommand(MainViewModel viewModel)
@@ -21,14 +21,27 @@ namespace SwitchingViewsMVVM.Commands
 
         public override void Execute(object parameter)
         {
-            if(parameter.ToString() == "_Pr1")
+          
+
+            switch (parameter.ToString())
             {
-                viewModel.SelectedViewModel = new _Pr1ViewModel();
+                case ("Home"):
+                    viewModel.SelectedViewModel = new HomeViewModel();
+                    break;
+
+                case ("_Pr1"):
+                    viewModel.SelectedViewModel = new _Pr1ViewModel();
+                    break;
+
+                case ("_Pr2"):
+                    viewModel.SelectedViewModel = new _Pr2ViewModel();
+                    break;
+
+              
+
+                
             }
-            else if(parameter.ToString() == "_Pr2")
-            {
-                viewModel.SelectedViewModel = new _Pr2ViewModel();
-            }
+
         }
     }
 }

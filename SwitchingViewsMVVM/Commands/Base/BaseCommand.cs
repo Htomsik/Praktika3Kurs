@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace SwitchingViewsMVVM.Commands
 {
-    internal abstract class BaseCommand:ICommand
+    public abstract class BaseCommand:ICommand
     {
         public event EventHandler CanExecuteChanged //впф автоматически генерирует это событие у всех команд когда что то происходит
         {

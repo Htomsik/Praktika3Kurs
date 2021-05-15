@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SwitchingViewsMVVM.Views;
 
 namespace SwitchingViewsMVVM
 {
@@ -24,7 +25,7 @@ namespace SwitchingViewsMVVM
         public MainWindow()
         {
             InitializeComponent();
-            _SlidePanel.Width = 53;
+            _ControlContent.Navigate(new HomePage());
         }
 
         private void _GragPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

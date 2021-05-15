@@ -6,11 +6,21 @@
              xmlns:viewmodels="clr-namespace:SwitchingViewsMVVM.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        
         <DataTemplate DataType="{x:Type viewmodels:_Pr1ViewModel}">
-            <views:HomeView/>
+            <views:_Pr1/>
         </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewmodels:_Pr2ViewModel}">
-            <views:AccountView/>
+            <views:_Pr2/>
         </DataTemplate>
+
+
+        <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+            <views:HomePage/>
+        </DataTemplate>
+
+
+
     </Application.Resources>
 </Application>
