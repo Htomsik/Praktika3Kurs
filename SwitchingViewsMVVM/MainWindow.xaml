@@ -29,6 +29,7 @@
 
 
         <!--  Стиль подсказок  -->
+        
         <Style TargetType="ToolTip">
             <Setter Property="Template">
                 <Setter.Value>
