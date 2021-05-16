@@ -30,6 +30,7 @@
 
         <com:CloseApplicationCommand x:Key="CloseApplication" />
 
+
         <!--  Стиль подсказок  -->
         <Style TargetType="ToolTip">
             <Setter Property="Template">
@@ -51,6 +52,7 @@
             </Setter>
         </Style>
 
+
     </Window.Resources>
 
     <!--  Вся страница  -->
@@ -71,6 +73,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
+            <!--  Рисунок на странице  -->
             <Polygon
                 Grid.RowSpan="2"
                 Grid.ColumnSpan="3"
@@ -86,6 +89,12 @@
                 Grid.ColumnSpan="3"
                 Fill="#FF586070"
                 Points="0,0 1079,696 900,696" />
+            <Polygon
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="3"
+                Fill="#FF8792AA"
+                Points="0,0 900,696 700,696" />
+
 
 
 
@@ -128,7 +137,7 @@
                                             VerticalAlignment="Center"
                                             FontSize="25"
                                             Foreground="White"
-                                            Text="Кифирка (Просит прощения за то что сдает работы не вовремя) " />
+                                            Text="Кифирка" />
                                         <WrapPanel Grid.Row="1">
                                             <Image
                                                 Width="200"
@@ -346,17 +355,24 @@
                                     <ContentPresenter Content="{Binding Contents}" />
                                 </TextBlock>
 
-
+                                <StackPanel.InputBindings>
+                                    <MouseBinding
+                                        Command="{Binding DataContext.UpdateViewCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                        CommandParameter="{Binding Tags}"
+                                        MouseAction="LeftClick" />
+                                </StackPanel.InputBindings>
 
                             </StackPanel>
 
-                            
-
-
                         </DataTemplate>
+
                     </ListView.ItemTemplate>
 
-                  
+
+
+
+
+
 
                 </ListView>
 
