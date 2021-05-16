@@ -35,7 +35,7 @@
 
         <Grid
             Canvas.Left="788"
-            Canvas.Top="508"
+            Canvas.Top="487"
             Height="150"
             VerticalAlignment="Bottom"
             Background="#FF212329">

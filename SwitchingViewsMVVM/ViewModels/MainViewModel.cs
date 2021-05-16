@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using SwitchingViewsMVVM.Models;
+using System.Windows.Threading;
 
 namespace SwitchingViewsMVVM.ViewModels
 {
@@ -40,6 +41,27 @@ namespace SwitchingViewsMVVM.ViewModels
         }
         #endregion
 
+        #region время
+        private string _currentTime;
+
+        public DispatcherTimer _timer;
+
+        public string CurrentTime
+        {
+            get
+            {
+                return this._currentTime;
+            }
+            set
+            {
+                if (_currentTime == value)
+                    return;
+                _currentTime = value;
+                OnPropertyChanged("CurrentTime");
+            }
+        }
+        #endregion
+
         #region Выбор страниц
         private BaseViewModel _selectedViewModel;
         public BaseViewModel SelectedViewModel
@@ -57,11 +79,24 @@ namespace SwitchingViewsMVVM.ViewModels
         #endregion
 
         
+        
 
         public MainViewModel()
         {
+
             UpdateViewCommand = new UpdateViewCommand(this);
 
+            #region таймер для обновления времени
+
+            _timer = new DispatcherTimer(DispatcherPriority.Render);
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.Tick += (sender, args) =>
+            {
+                CurrentTime = DateTime.Now.ToLongTimeString();
+            };
+            _timer.Start();
+
+            #endregion
 
             #region Список страниц
             _PageLists = new List<PageList>

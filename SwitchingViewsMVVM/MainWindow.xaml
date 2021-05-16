@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:com="clr-namespace:SwitchingViewsMVVM.Commands"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.com/icons/"
     xmlns:local="clr-namespace:SwitchingViewsMVVM"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:SwitchingViewsMVVM.ViewModels"
@@ -68,6 +69,7 @@
         BorderBrush="Gray"
         BorderThickness="2"
         CornerRadius="7">
+
         <Grid x:Name="_firstGrid">
 
             <Grid.ColumnDefinitions>
@@ -78,36 +80,32 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
                 <RowDefinition />
+                <RowDefinition Height="30" />
             </Grid.RowDefinitions>
 
             <!--  Рисунок на странице  -->
             <Polygon
-                Grid.RowSpan="2"
+                Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
                 Fill="#FF535A6A"
                 Points="0,0 1079,696 1079,0" />
             <Polygon
-                Grid.RowSpan="2"
+                Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
                 Fill="#FF3B404B"
                 Points="0,0 1079,696 1079,600" />
             <Polygon
-                Grid.RowSpan="2"
+                Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
                 Fill="#FF586070"
                 Points="0,0 1079,696 900,696" />
             <Polygon
-                Grid.RowSpan="2"
+                Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
                 Fill="#FF8792AA"
                 Points="0,0 900,696 700,696" />
 
-
-
-
-
-
-
+            <!--  Верхняя панель  -->
             <Border
                 x:Name="_GragPanel"
                 Grid.ColumnSpan="3"
@@ -119,6 +117,7 @@
                         <ColumnDefinition />
                         <ColumnDefinition Width="40" />
                     </Grid.ColumnDefinitions>
+
                     <Button
                         Grid.Column="2"
                         HorizontalAlignment="Right"
@@ -178,6 +177,10 @@
                         FontSize="20"
                         Foreground="White"
                         Text="{Binding Title}" />
+
+
+
+
                 </Grid>
 
             </Border>
@@ -185,6 +188,7 @@
             <Frame
                 x:Name="_ControlContent"
                 Grid.Row="1"
+                Grid.RowSpan="2"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Panel.ZIndex="4"
@@ -195,6 +199,7 @@
             <Grid
                 x:Name="_SlidePanel"
                 Grid.Row="1"
+                Grid.RowSpan="2"
                 Grid.ColumnSpan="3"
                 Width="{Binding Width}"
                 HorizontalAlignment="Left"
@@ -376,6 +381,7 @@
             <Grid
                 x:Name="Opa_grid"
                 Grid.Row="1"
+                Grid.RowSpan="2"
                 Grid.ColumnSpan="3"
                 Width="0"
                 HorizontalAlignment="Right"
@@ -383,10 +389,36 @@
                 Background="Black"
                 Opacity="0" />
 
+            <!--Нижняя панель-->
+            <Border
+                Width="125"
+                HorizontalAlignment="Right"
+                Margin="5 0 0 0"
+                CornerRadius="10"
+                Grid.Row="2"
+                Grid.Column="2"
+                Grid.ColumnSpan="1"
+                Background="#2E333A">
+                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" >
+
+                    <TextBlock
+                        Margin="5,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        Foreground="White"
+                        Text="{Binding CurrentTime}"
+                        TextAlignment="Center" />
+                    <fa:ImageAwesome
+                        Width="25"
+                        Height="25"
+                        HorizontalAlignment="Left"
+                        Foreground="White"
+                        Icon="Regular_Clock" />
 
 
-
-
+                </StackPanel>
+            </Border>
 
         </Grid>
     </Border>
