@@ -36,16 +36,23 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ToolTip">
-                        <Grid Background="#FF666666">
-                            <TextBlock
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontFamily="Century Gothic"
-                                FontSize="14"
-                                Foreground="White">
-                                <ContentPresenter Content="{TemplateBinding Content}" />
-                            </TextBlock>
-                        </Grid>
+                        <Border
+                            BorderBrush="#FF8792AA"
+                            BorderThickness="1"
+                            CornerRadius="5">
+                            <Grid Background="#FF666666">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Century Gothic"
+                                    FontSize="21"
+                                    Foreground="White">
+                                    <ContentPresenter Content="{TemplateBinding Content}" />
+                                </TextBlock>
+
+                            </Grid>
+                        </Border>
+
                     </ControlTemplate>
 
                 </Setter.Value>
@@ -203,8 +210,6 @@
                     <RowDefinition Height="80" />
                 </Grid.RowDefinitions>
 
-
-
                 <Grid.Triggers>
                     <EventTrigger RoutedEvent="Mouse.MouseLeave">
                         <BeginStoryboard>
@@ -288,7 +293,6 @@
                                 Height="40"
                                 Source="/Assets/menu1.png" />
 
-
                         </Button>
                         <TextBlock
                             Margin="15,0,0,0"
@@ -308,8 +312,6 @@
                     Grid.RowSpan="2"
                     Grid.ColumnSpan="2"
                     Margin="0,5,0,10"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center"
                     Background="Transparent"
                     BorderThickness="0"
                     FontFamily="Century Gothic"
@@ -347,7 +349,6 @@
 
                                 </Border>
 
-
                                 <TextBlock
                                     Margin="15,0"
                                     HorizontalAlignment="left"
@@ -367,13 +368,6 @@
                         </DataTemplate>
 
                     </ListView.ItemTemplate>
-
-
-
-
-
-
-
                 </ListView>
 
 

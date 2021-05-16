@@ -6,7 +6,11 @@
              xmlns:viewmodels="clr-namespace:SwitchingViewsMVVM.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+
+        <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+            <views:HomePage/>
+        </DataTemplate>
+
         <DataTemplate DataType="{x:Type viewmodels:_Pr1ViewModel}">
             <views:_Pr1/>
         </DataTemplate>
@@ -15,9 +19,32 @@
             <views:_Pr2/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewmodels:_Pr3ViewModel}">
+            <views:_Pr3/>
+        </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
-            <views:HomePage/>
+        <DataTemplate DataType="{x:Type viewmodels:_Pr4ViewModel}">
+            <views:_Pr4/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr5ViewModel}">
+            <views:_Pr5/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr6ViewModel}">
+            <views:_Pr6/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr7ViewModel}">
+            <views:_Pr7/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr8ViewModel}">
+            <views:_Pr8/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr9ViewModel}">
+            <views:_Pr9/>
         </DataTemplate>
 
 

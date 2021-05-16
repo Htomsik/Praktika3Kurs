@@ -12,5 +12,7 @@ namespace SwitchingViewsMVVM.Models
 
         public string Tags { get; set; }
 
+      
+
     }
 }

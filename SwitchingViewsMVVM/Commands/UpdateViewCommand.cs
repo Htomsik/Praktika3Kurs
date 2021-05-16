@@ -17,31 +17,26 @@ namespace SwitchingViewsMVVM.Commands
         }
 
         public override bool CanExecute(object parameter) => true;
-      
+
+        SwitchingViewsMVVM.ViewModels.BaseViewModel[] _ViewModelArray = new SwitchingViewsMVVM.ViewModels.BaseViewModel[]
+           {
+                new HomeViewModel(),
+                new _Pr1ViewModel(),
+                new _Pr2ViewModel(),
+                new _Pr3ViewModel(),
+                new _Pr4ViewModel(),
+                new _Pr5ViewModel(),
+                new _Pr6ViewModel(),
+                new _Pr7ViewModel(),
+                new _Pr8ViewModel(),
+                new _Pr9ViewModel()
+           };
 
         public override void Execute(object parameter)
-        {
-          
+        {          
 
-            switch (parameter.ToString())
-            {
-                case ("0"):
-                    viewModel.SelectedViewModel = new HomeViewModel();
-                    break;
-
-                case ("1"):
-                    viewModel.SelectedViewModel = new _Pr1ViewModel();
-                    break;
-
-                case ("2"):
-                    viewModel.SelectedViewModel = new _Pr2ViewModel();
-                    break;
-
-              
-
-                
-            }
-
+             viewModel.SelectedViewModel = _ViewModelArray[Convert.ToInt32(parameter)];
+   
         }
     }
 }

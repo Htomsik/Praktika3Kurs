@@ -69,6 +69,13 @@
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\_Pr1ViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\_Pr3ViewModel.cs" />
+    <Compile Include="ViewModels\_Pr4ViewModel.cs" />
+    <Compile Include="ViewModels\_Pr5ViewModel.cs" />
+    <Compile Include="ViewModels\_Pr6ViewModel.cs" />
+    <Compile Include="ViewModels\_Pr7ViewModel.cs" />
+    <Compile Include="ViewModels\_Pr8ViewModel.cs" />
+    <Compile Include="ViewModels\_Pr9ViewModel.cs" />
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -77,6 +84,27 @@
     </Compile>
     <Compile Include="Views\_Pr2.xaml.cs">
       <DependentUpon>_Pr2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Pr3.xaml.cs">
+      <DependentUpon>_Pr3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Pr4.xaml.cs">
+      <DependentUpon>_Pr4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Pr5.xaml.cs">
+      <DependentUpon>_Pr5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Pr6.xaml.cs">
+      <DependentUpon>_Pr6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Pr7.xaml.cs">
+      <DependentUpon>_Pr7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Pr8.xaml.cs">
+      <DependentUpon>_Pr8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Pr9.xaml.cs">
+      <DependentUpon>_Pr9.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -99,6 +127,34 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\_Pr2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\_Pr3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\_Pr4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\_Pr5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\_Pr6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\_Pr7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\_Pr8.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\_Pr9.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
