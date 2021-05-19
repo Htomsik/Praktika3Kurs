@@ -1,9 +1,53 @@
-﻿<Application x:Class="Collageprogram.App"
+﻿<Application x:Class="CollageProgram.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Collageprogram"
+             xmlns:local="clr-namespace:CollageProgram"
+             xmlns:views="clr-namespace:CollageProgram.Views"
+             xmlns:viewmodels="clr-namespace:CollageProgram.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+            <views:HomePage/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr1ViewModel}">
+            <views:_Pr1/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr2ViewModel}">
+            <views:_Pr2/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr3ViewModel}">
+            <views:_Pr3/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr4ViewModel}">
+            <views:_Pr4/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr5ViewModel}">
+            <views:_Pr5/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr6ViewModel}">
+            <views:_Pr6/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr7ViewModel}">
+            <views:_Pr7/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr8ViewModel}">
+            <views:_Pr8/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:_Pr9ViewModel}">
+            <views:_Pr9/>
+        </DataTemplate>
+
+
+
     </Application.Resources>
 </Application>
