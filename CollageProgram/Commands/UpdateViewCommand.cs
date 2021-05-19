@@ -33,10 +33,19 @@ namespace CollageProgram.Commands
            };
 
         public override void Execute(object parameter)
-        {          
+        {
+            var IntParametr = Convert.ToInt32(parameter);
+            if (IntParametr != -1)
+            {
+                viewModel.SelectedViewModel = _ViewModelArray[IntParametr];
+            }
+            else 
+            { 
+                viewModel.SelectedViewModel = _ViewModelArray[0];
+            }
 
-             viewModel.SelectedViewModel = _ViewModelArray[Convert.ToInt32(parameter)];
-   
+
+
         }
     }
 }

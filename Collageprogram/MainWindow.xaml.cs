@@ -25,7 +25,7 @@ namespace CollageProgram
         public MainWindow()
         {
             InitializeComponent();
-            _ControlContent.Navigate(new HomePage());
+           // _ControlContent.Navigate(new HomePage());
         }
 
         private void _GragPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

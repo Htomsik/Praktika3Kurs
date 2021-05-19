@@ -1,0 +1,45 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewmodels="clr-namespace:CollageProgram.Models">
+
+
+    <DataTemplate x:Key="MenuTemplate">
+
+        <StackPanel
+            Height="50"
+            Margin="5,0,0,0"
+            Orientation="Horizontal"
+            ToolTip="{Binding Contents}">
+
+            <Border
+                Width="40"
+                Height="40"
+                Background="#FF666666"
+                CornerRadius="17">
+                <Grid>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="28"
+                        FontWeight="Bold"
+                        Text="{Binding Tags}"
+                        TextAlignment="Center" />
+                </Grid>
+            </Border>
+            <TextBlock
+                Margin="15,0"
+                HorizontalAlignment="left"
+                VerticalAlignment="Center">
+                <ContentPresenter Content="{Binding Contents}" />
+            </TextBlock>
+            <StackPanel.InputBindings>
+                <MouseBinding
+                    Command="{Binding DataContext.UpdateViewCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                    CommandParameter="{Binding Tags}"
+                    MouseAction="LeftClick" />
+            </StackPanel.InputBindings>
+        </StackPanel>
+    </DataTemplate>
+
+</ResourceDictionary>

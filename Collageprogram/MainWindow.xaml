@@ -5,6 +5,7 @@
     xmlns:com="clr-namespace:CollageProgram.Commands"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.fontawesome.com/icons/"
+    xmlns:ia="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:local="clr-namespace:CollageProgram"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodels="clr-namespace:CollageProgram.ViewModels"
@@ -23,55 +24,28 @@
     WindowStyle="None"
     mc:Ignorable="d">
 
+
     <Window.DataContext>
         <viewmodels:MainViewModel />
     </Window.DataContext>
 
     <Window.Resources>
-
-        <com:CloseApplicationCommand x:Key="CloseApplication" />
-
-
-        <!--  Стиль подсказок  -->
-        <Style TargetType="ToolTip">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ToolTip">
-                        <Border
-                            BorderBrush="#FF8792AA"
-                            BorderThickness="1"
-                            CornerRadius="5">
-                            <Grid Background="#FF666666">
-                                <TextBlock
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    FontFamily="Century Gothic"
-                                    FontSize="21"
-                                    Foreground="White">
-                                    <ContentPresenter Content="{TemplateBinding Content}" />
-                                </TextBlock>
-
-                            </Grid>
-                        </Border>
-
-                    </ControlTemplate>
-
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-
+        <com:CloseApplicationCommand x:Key="CloseApplicationCommand" />
     </Window.Resources>
+
+    <ia:Interaction.Triggers>
+        <ia:EventTrigger EventName="Loaded">
+            
+        </ia:EventTrigger>
+    </ia:Interaction.Triggers>
+
 
     <!--  Вся страница  -->
     <Border
-        Background="#FF464C59"
-        BorderBrush="Gray"
         BorderThickness="2"
-        CornerRadius="7">
-
+        CornerRadius="7"
+        Style="{StaticResource MainBorderStyle}">
         <Grid x:Name="_firstGrid">
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60" />
                 <ColumnDefinition Width="440" />
@@ -87,30 +61,26 @@
             <Polygon
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
-                Fill="#FF535A6A"
-                Points="0,0 1079,696 1079,0" />
+                Style="{StaticResource Polygon1Style}" />
             <Polygon
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
-                Fill="#FF3B404B"
-                Points="0,0 1079,696 1079,600" />
+                Style="{StaticResource Polygon2Style}" />
             <Polygon
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
-                Fill="#FF586070"
-                Points="0,0 1079,696 900,696" />
+                Style="{StaticResource Polygon3Style}" />
             <Polygon
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
-                Fill="#FF8792AA"
-                Points="0,0 900,696 700,696" />
+                Style="{StaticResource Polygon4Style}" />
 
             <!--  Верхняя панель  -->
             <Border
                 x:Name="_GragPanel"
                 Grid.ColumnSpan="3"
-                Background="#FF545E68"
-                MouseLeftButtonDown="_GragPanel_MouseLeftButtonDown">
+                MouseLeftButtonDown="_GragPanel_MouseLeftButtonDown"
+                Style="{StaticResource UpBorderStyle}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40" />
@@ -124,7 +94,7 @@
                         VerticalAlignment="Center"
                         Background="Transparent"
                         BorderBrush="Transparent"
-                        Command="{StaticResource CloseApplication}"
+                        Command="{StaticResource CloseApplicationCommand}"
                         ToolTip="Выход из приложения">
                         <Image Height="25" Source="/Assets/close.png" />
                     </Button>
@@ -204,7 +174,7 @@
                 Width="{Binding Width}"
                 HorizontalAlignment="Left"
                 Panel.ZIndex="6"
-                Background="#2E333A">
+                Style="{StaticResource MenuGridStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="38*" />
                     <ColumnDefinition Width="87*" />
@@ -291,12 +261,18 @@
                                         </BeginStoryboard>
                                     </EventTrigger.Actions>
                                 </EventTrigger>
+
                             </Button.Triggers>
 
-                            <Image
+                            <fa:ImageAwesome
                                 Width="40"
                                 Height="40"
-                                Source="/Assets/menu1.png" />
+                                Foreground="White"
+                                Icon="Solid_Bars">
+                                <fa:ImageAwesome.Effect>
+                                    <DropShadowEffect ShadowDepth="1" />
+                                </fa:ImageAwesome.Effect>
+                            </fa:ImageAwesome>
 
                         </Button>
                         <TextBlock
@@ -307,74 +283,21 @@
                             Text="Меню"
                             TextAlignment="Center" />
                     </StackPanel>
-
-
-
                 </Grid>
 
                 <ListView
                     Grid.Row="1"
                     Grid.RowSpan="2"
                     Grid.ColumnSpan="2"
-                    Margin="0,5,0,10"
                     Background="Transparent"
                     BorderThickness="0"
                     FontFamily="Century Gothic"
                     FontWeight="Bold"
                     Foreground="White"
-                    ItemsSource="{Binding _PageLists}"
+                    ItemTemplate="{StaticResource MenuTemplate}"
+                    ItemsSource="{Binding PageLists}"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
-
-                    <ListView.ItemTemplate>
-
-                        <DataTemplate>
-
-                            <StackPanel
-                                Height="50"
-                                Margin="5,0,0,0"
-                                Orientation="Horizontal"
-                                ToolTip="{Binding Contents}">
-
-                                <Border
-                                    Width="40"
-                                    Height="40"
-                                    Background="#FF666666"
-                                    CornerRadius="17">
-                                    <Grid>
-                                        <TextBlock
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            FontSize="28"
-                                            FontWeight="Bold"
-                                            Text="{Binding Tags}"
-                                            TextAlignment="Center" />
-                                    </Grid>
-
-
-                                </Border>
-
-                                <TextBlock
-                                    Margin="15,0"
-                                    HorizontalAlignment="left"
-                                    VerticalAlignment="Center">
-                                    <ContentPresenter Content="{Binding Contents}" />
-                                </TextBlock>
-
-                                <StackPanel.InputBindings>
-                                    <MouseBinding
-                                        Command="{Binding DataContext.UpdateViewCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
-                                        CommandParameter="{Binding Tags}"
-                                        MouseAction="LeftClick" />
-                                </StackPanel.InputBindings>
-
-                            </StackPanel>
-
-                        </DataTemplate>
-
-                    </ListView.ItemTemplate>
-                </ListView>
-
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled" />
 
             </Grid>
 
@@ -389,17 +312,17 @@
                 Background="Black"
                 Opacity="0" />
 
-            <!--Нижняя панель-->
+            <!--  Нижняя панель  -->
             <Border
-                Width="125"
-                HorizontalAlignment="Right"
-                Margin="5 0 0 0"
-                CornerRadius="10"
                 Grid.Row="2"
                 Grid.Column="2"
                 Grid.ColumnSpan="1"
-                Background="#2E333A">
-                <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" >
+                Width="125"
+                Margin="5,0,0,0"
+                HorizontalAlignment="Right"
+                Background="#2E333A"
+                CornerRadius="10">
+                <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
 
                     <TextBlock
                         Margin="5,0,0,0"
@@ -414,7 +337,14 @@
                         Height="25"
                         HorizontalAlignment="Left"
                         Foreground="White"
-                        Icon="Regular_Clock" />
+                        Icon="Regular_Clock">
+
+                        <fa:ImageAwesome.Effect>
+                            <DropShadowEffect ShadowDepth="1" />
+
+                        </fa:ImageAwesome.Effect>
+
+                    </fa:ImageAwesome>
 
 
                 </StackPanel>

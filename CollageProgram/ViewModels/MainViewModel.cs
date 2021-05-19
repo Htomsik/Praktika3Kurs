@@ -14,7 +14,7 @@ namespace CollageProgram.ViewModels
     public class MainViewModel : BaseViewModel
     {
 
-        public List<PageList> _PageLists { get; set; }
+        public List<PageList> PageLists { get; set; }
         //public object[] _PageNameArray
         //{
         //    get
@@ -78,9 +78,6 @@ namespace CollageProgram.ViewModels
 
         #endregion
 
-        
-        
-
         public MainViewModel()
         {
 
@@ -99,7 +96,9 @@ namespace CollageProgram.ViewModels
             #endregion
 
             #region Список страниц
-            _PageLists = new List<PageList>
+
+            //Надо что то с этим сделать,но как сделать по другому я пока что не знаю
+            PageLists = new List<PageList>
             {
                 new PageList
                 {
