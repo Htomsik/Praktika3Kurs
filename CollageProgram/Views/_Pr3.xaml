@@ -42,6 +42,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
+
             <GroupBox
                 Grid.RowSpan="2"
                 Grid.ColumnSpan="2"
@@ -50,12 +51,28 @@
                 <ListView
                     Background="Transparent"
                     BorderThickness="0"
-                    DisplayMemberPath="NameTheme"
                     FontFamily="Century Gothic"
                     FontWeight="Bold"
                     Foreground="White"
                     ItemsSource="{Binding ThemeApplication}">
- 
+
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding NameTheme}">
+
+                                <TextBlock.InputBindings>
+                                    <MouseBinding
+                                        Command="{Binding DataContext.ThemeChangeCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                        CommandParameter="{Binding UrlTheme}"
+                                        MouseAction="LeftClick" />
+                                </TextBlock.InputBindings>
+                            </TextBlock>
+
+
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
                 </ListView>
             </GroupBox>
 

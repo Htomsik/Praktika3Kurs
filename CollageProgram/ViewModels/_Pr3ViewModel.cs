@@ -24,6 +24,13 @@ namespace CollageProgram.ViewModels
         private void OnThemeChangeCommand(object p)
         {
 
+            var uri = new Uri(Convert.ToString(p), UriKind.Relative);
+
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+
+            Application.Current.Resources.Clear();
+
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
 
         private bool CanThemeChangeCommand(object p) =>  true;
@@ -49,7 +56,7 @@ namespace CollageProgram.ViewModels
                 {
                     NameTheme="Простая",
 
-                    UrlTheme=@"..\Resources\Themes\DefaulTheme.xaml"
+                    UrlTheme=@"..\Resources\Themes\DefaultTheme.xaml"
                 },
                 new ThemeApplication
                 {
