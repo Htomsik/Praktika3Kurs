@@ -7,24 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid>
-        <Grid
-            Height="70"
-            VerticalAlignment="Top"
-            Background="#FF373C46">
-
-            <Grid
-                Height="60"
-                VerticalAlignment="Top"
-                Background="#FF212329">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontFamily="Century Gothic"
-                    FontSize="28"
-                    Foreground="White"
-                    Text=" ПР№ 20 Работа с меню и диалоговыми окнами" />
-            </Grid>
-
-
+        <Grid Style="{StaticResource GridTitle}">
+            <TextBlock FontSize="28" Text=" ПР№ 20 Работа с меню и диалоговыми окнами" />
         </Grid>
 
     </Grid>

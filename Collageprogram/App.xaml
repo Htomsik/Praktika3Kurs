@@ -9,10 +9,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources\ViewResources\ViewSwitch.xaml" />
-                <ResourceDictionary Source="Resources\DataTemplate\MenuDataTemplate.xaml" />
-                <ResourceDictionary Source="Resources\Themes\DefaulTheme.xaml" />
-                <ResourceDictionary Source="Resources\Styles\ToolTipStyle.xaml" />
+                <ResourceDictionary Source="Resources\Themes\DefaultTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

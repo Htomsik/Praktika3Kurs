@@ -44,17 +44,17 @@ namespace CollageProgram.Views
                 if (_rectangle != null && _rectangle.Width == _rectangle.Height)
                 {
                     square -= 1;
-                    _SquareScore.Content = square;
+                    _SquareScore.Text =  square.ToString();
                 }
                 if (_rectangle != null && _rectangle.Width != _rectangle.Height)
                 {
                     rectangle -= 1;
-                    _RectangleScore.Content = rectangle;
+                    _RectangleScore.Text = rectangle.ToString();
                 }
                 if (activeRec.Children[0] is Ellipse)
                 {
                     Ellipse -= 1;
-                    _ElipseScore.Content = Ellipse;
+                    _ElipseScore.Text = Ellipse.ToString();
                 }
             }
             else
@@ -76,17 +76,17 @@ namespace CollageProgram.Views
                 if (re != null && re.Width == re.Height)
                 {
                     square += 1;
-                    _SquareScore.Content = square;
+                    _SquareScore.Text = square.ToString();
                 }
                 if (re != null && re.Width != re.Height)
                 {
                     rectangle += 1;
-                    _RectangleScore.Content = rectangle;
+                    _RectangleScore.Text = rectangle.ToString();
                 }
                 if (grid.Children[0] is Ellipse)
                 {
                     Ellipse += 1;
-                    _ElipseScore.Content = Ellipse;
+                    _ElipseScore.Text = Ellipse.ToString();
                 }
 
             }

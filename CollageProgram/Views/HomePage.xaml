@@ -30,29 +30,9 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Grid
-            Grid.ColumnSpan="8"
-            Width="1029"
-            Height="70"
-            VerticalAlignment="Top"
-            Background="#FF373C46">
 
-            <Grid
-                Width="1029"
-                Margin="0,0,0,5"
-                Background="#FF212329">
-                
-                
-
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontFamily="Century Gothic"
-                    FontSize="28"
-                    Foreground="White"
-                    Text="Главная страница"
-                    TextAlignment="Center" />
-
-            </Grid>
+        <Grid Grid.ColumnSpan="8" Style="{StaticResource GridTitle}">
+            <TextBlock FontSize="28" Text="Главная страница" />
         </Grid>
 
         <Grid
@@ -61,19 +41,13 @@
             Grid.Column="1"
             Grid.ColumnSpan="6"
             Margin="0,0,0,69"
-            Background="#FF373C46">
-            <Grid Margin="15" Background="#FF212329">
+            Style="{StaticResource Grid1Style}">
+            <Grid Margin="15" Style="{StaticResource Grid2Style}">
                 <TextBlock
                     Margin="0,0,10,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
                     xml:space="preserve"
-                    FontFamily="Century Gothic"
                     FontSize="24"
-                    FontStyle="Italic"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    TextAlignment="Center">
+                    FontStyle="Italic">
 Многооконное графическое приложение
 с использованием основных элементов управления
 интерфейса Windows Forms
@@ -92,8 +66,8 @@
             Grid.RowSpan="2"
             Grid.Column="3"
             Grid.ColumnSpan="2"
-            Background="#FF373C46">
-            <Grid Margin="15" Background="#FF373C46">
+            Style="{StaticResource Grid1Style}">
+            <Grid Margin="15">
                 <Image
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"

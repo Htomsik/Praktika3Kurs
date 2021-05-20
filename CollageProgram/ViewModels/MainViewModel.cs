@@ -8,21 +8,15 @@ using System.Windows.Input;
 using System.Windows;
 using CollageProgram.Models;
 using System.Windows.Threading;
+using System.Collections.ObjectModel;
 
 namespace CollageProgram.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
 
-        public List<PageList> PageLists { get; set; }
-        //public object[] _PageNameArray
-        //{
-        //    get
-        //    {
-        //        return new object[] { "Home", "1", "2", "3" };
-        //    }
-        //}
-
+        public ObservableCollection<PageList> PageLists { get; set; }
+      
         #region title
         private string _Title = "Несутулов/Краснов 418";
         public string Title
@@ -98,7 +92,7 @@ namespace CollageProgram.ViewModels
             #region Список страниц
 
             //Надо что то с этим сделать,но как сделать по другому я пока что не знаю
-            PageLists = new List<PageList>
+            PageLists = new ObservableCollection<PageList>
             {
                 new PageList
                 {

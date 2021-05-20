@@ -15,16 +15,13 @@
             <Border
                 Width="40"
                 Height="40"
-                Background="#FF666666"
+                Style="{DynamicResource MainBorderStyle}"
                 CornerRadius="17">
                 <Grid>
                     <TextBlock
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
                         FontSize="28"
-                        FontWeight="Bold"
                         Text="{Binding Tags}"
-                        TextAlignment="Center" />
+ />
                 </Grid>
             </Border>
             <TextBlock

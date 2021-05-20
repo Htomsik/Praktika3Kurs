@@ -11,24 +11,68 @@
     <UserControl.DataContext>
         <viewmodels:_Pr3ViewModel />
     </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Resources\DataTemplate\MenuDataTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+
+    </UserControl.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-        <Grid
-            Height="70"
-            VerticalAlignment="Top"
-            Background="#FF373C46">
-
-            <Grid
-                Height="60"
-                VerticalAlignment="Top"
-                Background="#FF212329">
-                <TextBlock
-                    HorizontalAlignment="Center"
+            <GroupBox
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                BorderThickness="1"
+                Header="Темы приложения">
+                <ListView
+                    Background="Transparent"
+                    BorderThickness="0"
+                    DisplayMemberPath="NameTheme"
                     FontFamily="Century Gothic"
-                    FontSize="28"
+                    FontWeight="Bold"
                     Foreground="White"
-                    Text="ПР №17 Настройки приложения" />
-            </Grid>
+                    ItemsSource="{Binding ThemeApplication}">
+ 
+                </ListView>
+            </GroupBox>
+
+        </Grid>
+
+
+
+
+
+
+        <Grid Grid.ColumnSpan="4" Style="{StaticResource GridTitle}">
+            <TextBlock
+                HorizontalAlignment="Center"
+                FontFamily="Century Gothic"
+                FontSize="28"
+                Foreground="White"
+                Text=" ПР№ 17 Настройки приложения" />
         </Grid>
 
 

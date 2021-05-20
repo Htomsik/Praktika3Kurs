@@ -8,20 +8,7 @@
     xmlns:viewmodel="clr-namespace:CollageProgram.ViewModels"
     mc:Ignorable="d">
 
-    <UserControl.Resources>
-        <Style TargetType="Label">
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="20" />
-            <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="FontFamily" Value="Century Gothic" />
 
-        </Style>
-
-
-
-        
-
-    </UserControl.Resources>
     <Canvas
         Name="_Canavs"
         Width="1029"
@@ -38,7 +25,8 @@
             Canvas.Top="487"
             Height="150"
             VerticalAlignment="Bottom"
-            Background="#FF212329">
+            Background="#FF212329"
+            IsEnabled="False">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition Width="40" />
@@ -50,51 +38,40 @@
             </Grid.RowDefinitions>
 
 
-            <Label Grid.Row="0" Content="Квадратов:" />
-            <Label Grid.Row="1" Content="Прямоугольников:" />
-            <Label Grid.Row="2" Content="Эллипсов:" />
+            <TextBlock Grid.Row="0" Text="Квадратов:" />
+            <TextBlock Grid.Row="1" Text="Прямоугольников:" />
+            <TextBlock Grid.Row="2" Text="Эллипсов:" />
 
-            <Label
+            <TextBlock
                 x:Name="_SquareScore"
                 Grid.Row="0"
                 Grid.Column="1"
-                Content="0" />
-            <Label
+                Text="0" />
+            <TextBlock
                 x:Name="_RectangleScore"
                 Grid.Row="1"
                 Grid.Column="1"
-                Content="0" />
-            <Label
+                Text="0" />
+            <TextBlock
                 x:Name="_ElipseScore"
                 Grid.Row="2"
                 Grid.Column="1"
-                Content="0" />
+                Text="0" />
         </Grid>
 
-
-        <Canvas
+        <Grid
+            IsEnabled="False"
             Width="1029"
-            Height="70"
+            Height="60"
             VerticalAlignment="Top"
-            Background="#FF373C46"
-            MouseLeftButtonDown="AddOrRemoveItems">
+            Style="{StaticResource GridTitle}">
+            <TextBlock
+                Width="692"
+                FontSize="28"
+                IsEnabled="False"
+                Text="ПР 16 Динамическое управление элементами" />
+        </Grid>
 
-            <Grid
-                Width="1029"
-                Height="60"
-                VerticalAlignment="Top"
-                Background="#FF212329">
-                <TextBlock
-                    Width="692"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    FontFamily="Century Gothic"
-                    FontSize="28"
-                    Foreground="White"
-                    IsEnabled="False"
-                    Text="ПР 16 Динамическое управление элементами" />
-            </Grid>
-        </Canvas>
 
 
     </Canvas>

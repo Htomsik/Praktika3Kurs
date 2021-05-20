@@ -2,6 +2,7 @@
     x:Class="CollageProgram.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:akb="clr-namespace:AttachedCommandBehavior;assembly=AttachedCommandBehavior"
     xmlns:com="clr-namespace:CollageProgram.Commands"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:fa="http://schemas.fontawesome.com/icons/"
@@ -30,12 +31,20 @@
     </Window.DataContext>
 
     <Window.Resources>
-        <com:CloseApplicationCommand x:Key="CloseApplicationCommand" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\ViewResources\ViewSwitch.xaml" />
+                <ResourceDictionary  Source="Resources\DataTemplate\MenuDataTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <com:CloseApplicationCommand x:Key="CloseApplicationCommand" />
+        </ResourceDictionary>
+
+
     </Window.Resources>
 
     <ia:Interaction.Triggers>
         <ia:EventTrigger EventName="Loaded">
-            
+            <ia:InvokeCommandAction Command="{Binding UpdateViewCommand}" CommandParameter="0" />
         </ia:EventTrigger>
     </ia:Interaction.Triggers>
 
@@ -44,7 +53,7 @@
     <Border
         BorderThickness="2"
         CornerRadius="7"
-        Style="{StaticResource MainBorderStyle}">
+        Style="{DynamicResource MainBorderStyle}">
         <Grid x:Name="_firstGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60" />
@@ -61,26 +70,26 @@
             <Polygon
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
-                Style="{StaticResource Polygon1Style}" />
+                Style="{DynamicResource Polygon1Style}" />
             <Polygon
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
-                Style="{StaticResource Polygon2Style}" />
+                Style="{DynamicResource Polygon2Style}" />
             <Polygon
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
-                Style="{StaticResource Polygon3Style}" />
+                Style="{DynamicResource Polygon3Style}" />
             <Polygon
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
-                Style="{StaticResource Polygon4Style}" />
+                Style="{DynamicResource Polygon4Style}" />
 
             <!--  Верхняя панель  -->
             <Border
                 x:Name="_GragPanel"
                 Grid.ColumnSpan="3"
                 MouseLeftButtonDown="_GragPanel_MouseLeftButtonDown"
-                Style="{StaticResource UpBorderStyle}">
+                Style="{DynamicResource UpBorderStyle}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="40" />
@@ -143,9 +152,7 @@
                     <TextBlock
                         Grid.Column="1"
                         HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
                         FontSize="20"
-                        Foreground="White"
                         Text="{Binding Title}" />
 
 
@@ -174,7 +181,7 @@
                 Width="{Binding Width}"
                 HorizontalAlignment="Left"
                 Panel.ZIndex="6"
-                Style="{StaticResource MenuGridStyle}">
+                Style="{DynamicResource MenuGridStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="38*" />
                     <ColumnDefinition Width="87*" />
@@ -317,11 +324,10 @@
                 Grid.Row="2"
                 Grid.Column="2"
                 Grid.ColumnSpan="1"
-                Width="125"
-                Margin="5,0,0,0"
+                Width="130"
                 HorizontalAlignment="Right"
-                Background="#2E333A"
-                CornerRadius="10">
+                CornerRadius="7"
+                Style="{DynamicResource UpBorderStyle}">
                 <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
 
                     <TextBlock
@@ -329,7 +335,6 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         FontSize="25"
-                        Foreground="White"
                         Text="{Binding CurrentTime}"
                         TextAlignment="Center" />
                     <fa:ImageAwesome
@@ -341,7 +346,6 @@
 
                         <fa:ImageAwesome.Effect>
                             <DropShadowEffect ShadowDepth="1" />
-
                         </fa:ImageAwesome.Effect>
 
                     </fa:ImageAwesome>

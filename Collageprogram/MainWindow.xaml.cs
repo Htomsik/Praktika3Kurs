@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CollageProgram.Views;
+using System.Xml;
+using System.Windows.Markup;
 
 namespace CollageProgram
 {
@@ -22,12 +24,12 @@ namespace CollageProgram
     /// </summary>
     public partial class MainWindow : Window
     {
+        string path;
         public MainWindow()
         {
             InitializeComponent();
-           // _ControlContent.Navigate(new HomePage());
-        }
 
+        }
         private void _GragPanel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             try

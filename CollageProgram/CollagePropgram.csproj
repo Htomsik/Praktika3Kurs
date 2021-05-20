@@ -80,7 +80,9 @@
     </ApplicationDefinition>
     <Compile Include="Commands\Base\BaseCommand.cs" />
     <Compile Include="Commands\CloseApplicationCommand.cs" />
+    <Compile Include="Commands\LambdaCommand.cs" />
     <Compile Include="Commands\UpdateViewCommand.cs" />
+    <Compile Include="Models\ThemeApplication.cs" />
     <Compile Include="Models\PageList.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\_Pr2ViewModel.cs" />
@@ -140,11 +142,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Styles\ToolTipStyle.xaml">
+    <Page Include="Resources\Styles\_Pr1ButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Themes\DefaulTheme.xaml">
+    <Page Include="Resources\Themes\StarDustCrussidersTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\StoneOceanTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Themes\DefaultTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,6 +248,5 @@
     <Resource Include="Assets\no_rectangle_cat.png" />
     <Resource Include="Assets\shutdown.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
